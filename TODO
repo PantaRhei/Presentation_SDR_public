@@ -1,0 +1,9 @@
+- Tenter un brouillage sur du bluetooth (car certainement moins puissant)
+- Tenter de chopper les transponteurs des aèronefs (pb: need une antenne)
+- Regarder au niveaux des satellites 
+- GPS Spoofing via HackRF One (ca ma l'aire pas trop dure est simple à mettre en place)
+- analyse des transmission de ma souris sans fils
+- montrer qu'il est possible d'émétre avec une rasberry pi
+- ADS-B 
+    - https://github.com/bistromath/gr-air-modes logiciel prometteur
+- enventuellement voir pour urh avec le github exemple restaurant
