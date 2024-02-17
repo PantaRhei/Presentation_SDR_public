@@ -29,11 +29,11 @@ Site du hackrf one:
 https://greatscottgadgets.com/hackrf/one/
 
 
-Et le github:
+Et le github officiel du hackrf one:
 https://github.com/greatscottgadgets/hackrf
 
 
-Et leurs chaine youtube:
+Chaine youtube hackrf one (quelque tutoriel interessant):
 https://www.youtube.com/GreatScottGadgets
 
 
@@ -41,3 +41,21 @@ Site qui parle des fonctionnements des radars (très très interessants + Plusie
 https://www.radartutorial.eu/index.en.html
 
 
+Ressource sur les antennes (electronique):
+- https://www.youtube.com/playlist?list=PLfiqNnhpCsNuygWomPQXno8Qq__dR0UbM
+
+Github interessant:
+Plusieurs expérience simpas à faire avec un hackrf 
+- https://github.com/PierreAdams/HackRF-One-French
+Pour le jamming:
+- https://github.com/timkim0713/RFJamming-FMRadio-SDR
+Portal pack pour le hackrf one:
+-https://github.com/sharebrained/portapack-hackrf/
+Logiciel URH (dispo sur snap):
+- https://github.com/jopohl/urh
+RTL433:
+- https://github.com/merbanan/rtl_433
+
+
+Site radio amateur france:
+- https://www.radioamateurs-france.fr/
