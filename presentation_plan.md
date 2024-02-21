@@ -21,10 +21,8 @@ la waterfall
 - angelsdr
 - airspy 
 etc
-## Rasberry pi (NON FAIT POUR LE MOMENT DONC AVOIR)
-montrer que l'on peut emettre avec une rasberry pi et juste un fils 
 
-# Recevoir de la radio AM
+#  de la radio AM
 + tanter de choper l'atis du versoud (je doute)
 + sinon montrer le cours audio
 
@@ -33,6 +31,8 @@ montrer que l'on peut emettre avec une rasberry pi et juste un fils
 + plus emettre
 + faire le lien sur gnuradio, les blocs sont assez proche de la conception electroniques
 + montrer que gnuradio genere du code (relativement "simple")
+## Rasberry pi 
+montrer que l'on peut emettre avec une rasberry pi et juste un fils 
 
 # Attaque play and replay
 + jamais reussi :'( 
