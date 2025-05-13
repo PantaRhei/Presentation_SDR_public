@@ -1,114 +1,118 @@
-Lib hackrf
-Pour installer la lib:
+
+# Utilisation de la bibliothèque libhackrf
+
+La bibliothèque **libhackrf** permet de contrôler un HackRF One en C/C++ pour recevoir ou transmettre des signaux I/Q bruts.
+Cette section propose un exemple minimal de compilation, quelques fonctions clés, et les références utiles issues de la documentation.
+
+---
+
+## Installation
+
+Sur une distribution Debian/Ubuntu :
+
 ```bash
 sudo apt install libhackrf-dev
-```
+````
 
-Compilation:
+---
+
+## Compilation d’un programme simple
+
+Exemple avec un fichier `main.c` :
+
 ```bash
 gcc -o main main.c -lhackrf
 ```
 
+Le binaire `main` est alors exécutable avec accès aux fonctions de la bibliothèque.
 
-# Fonction interessante
+---
+
+## Exemple d’utilisation brute – Réception
+
+La lib de libhackrf repose sur un modèle **asynchrone** : le HackRF remplit un tampon, et une fonction de **callback** est appelée dès que celui-ci est plein.
+
+### Prototype du callback de réception
+
 ```c
-// Fonction de rappel pour la réception de données
-//globalement quand le buffer du hackrf sera plein il utilisera cette function 
-//pour vider sont buffer
-//la doc
-/**
- * USB transfer information passed to RX or TX callback.
- * A callback should treat all these fields as read-only except that a TX
- * callback should write to the data buffer and may write to valid_length to
- * indicate that a smaller number of bytes is to be transmitted.
- * @ingroup streaming
- */
-typedef struct {
-	/** HackRF USB device for this transfer */
-	hackrf_device* device;
-	/** transfer data buffer (interleaved 8 bit I/Q samples) */
-	uint8_t* buffer;
-	/** length of data buffer in bytes */
-	int buffer_length;
-	/** number of buffer bytes that were transferred */
-	int valid_length;
-	/** User provided RX context. Not used by the library, but available to transfer callbacks for use. Set along with the transfer callback using @ref hackrf_start_rx or @ref hackrf_start_rx_sweep */
-	void* rx_ctx;
-	/** User provided TX context. Not used by the library, but available to transfer callbacks for use. Set along with the transfer callback using @ref hackrf_start_tx*/
-	void* tx_ctx;
-} hackrf_transfer;
-
-/**
- * Start receiving
- * 
- * Should be called after setting gains, frequency and sampling rate, as these values won't get reset but instead keep their last value, thus their state is unknown.
- * 
- * The callback is called with a @ref hackrf_transfer object whenever the buffer is full. The callback is called in an async context so no libhackrf functions should be called from it. The callback should treat its argument as read-only.
- * @param device device to configure
- * @param callback rx_callback
- * @param rx_ctx User provided RX context. Not used by the library, but available to @p callback as @ref hackrf_transfer.rx_ctx.
- * @return @ref HACKRF_SUCCESS on success or @ref hackrf_error variant
- * @ingroup streaming
- */
-extern ADDAPI int ADDCALL hackrf_start_rx(
-	hackrf_device* device,
-	hackrf_sample_block_cb_fn callback,
-	void* rx_ctx);
-
-/**
- * Stop receiving
- * 
- * @param device device to stop RX on
- * @return @ref HACKRF_SUCCESS on success or @ref hackrf_error variant
- * @ingroup streaming
- */
-extern ADDAPI int ADDCALL hackrf_stop_rx(hackrf_device* device);
-
-
-/**
- * Set sample rate
- * 
- * Sample rate should be in the range 2-20MHz, with the default being 10MHz. Lower & higher values are technically possible, but the performance is not guaranteed.
- * This function also sets the baseband filter bandwidth to a value \f$ \le 0.75 \cdot F_s \f$, so any calls to @ref hackrf_set_baseband_filter_bandwidth should only be made after this.
- * 
- * @param device device to configure
- * @param freq_hz sample rate frequency in Hz. Should be in the range 2-20MHz
- * @return @ref HACKRF_SUCCESS on success or @ref hackrf_error variant
- * @ingroup configuration
- */
-extern ADDAPI int ADDCALL hackrf_set_sample_rate(
-	hackrf_device* device,
-	const double freq_hz);
-
-/**
- * Set the center frequency
- * 
- * Simple (auto) tuning via specifying a center frequency in Hz
- * 
- * This setting is not exact and depends on the PLL settings. Exact resolution is not determined, but the actual tuned frequency will be quariable in the future.
- * 
- * @param device device to tune
- * @param freq_hz center frequency in Hz. Defaults to 900MHz. Should be in range 1-6000MHz, but 0-7250MHz is possible. The resolution is ~50Hz, I could not find the exact number.
- * @return @ref HACKRF_SUCCESS on success or @ref hackrf_error variant
- * @ingroup configuration
- */
-extern ADDAPI int ADDCALL hackrf_set_freq(hackrf_device* device, const uint64_t freq_hz);
-
-
-/**
- * Set baseband filter bandwidth
- * 
- * Possible values: 1.75, 2.5, 3.5, 5, 5.5, 6, 7, 8, 9, 10, 12, 14, 15, 20, 24, 28MHz, default \f$ \le 0.75 \cdot F_s \f$
- * The functions @ref hackrf_compute_baseband_filter_bw and @ref hackrf_compute_baseband_filter_bw_round_down_lt can be used to get a valid value nearest to a given value.
- * 
- * Setting the sample rate causes the filter bandwidth to be (re)set to its default \f$ \le 0.75 \cdot F_s \f$ value, so setting sample rate should be done before setting filter bandwidth.
- * 
- * @param device device to configure
- * @param bandwidth_hz baseband filter bandwidth in Hz
- * @return @ref HACKRF_SUCCESS on success or @ref hackrf_error variant
- * @ingroup configuration
- */
-extern ADDAPI int ADDCALL hackrf_set_baseband_filter_bandwidth(
-	hackrf_device* device,
-	const uint32_t bandwidth_hz);
+int rx_callback(hackrf_transfer* transfer) {
+    // Les données I/Q brutes sont accessibles via transfer->buffer
+    // Exemple : traitement, stockage, visualisation...
+    return 0; // 0 = continuer, -1 = arrêter
+}
 ```
+
+### Structure utilisée : `hackrf_transfer`
+
+```c
+typedef struct {
+    hackrf_device* device;
+    uint8_t* buffer;
+    int buffer_length;
+    int valid_length;
+    void* rx_ctx;
+    void* tx_ctx;
+} hackrf_transfer;
+```
+
+* `buffer` : contient les échantillons I/Q interlacés (8 bits, non signés)
+* `valid_length` : nombre de bytes valides
+* `rx_ctx` : pointeur utilisateur si besoin de contexte partagé
+* Cette structure est transmise automatiquement au callback par la lib.
+
+---
+
+## Fonctions principales
+
+### Démarrer la réception
+
+```c
+int hackrf_start_rx(hackrf_device* device, hackrf_sample_block_cb_fn callback, void* rx_ctx);
+```
+
+### Arrêter la réception
+
+```c
+int hackrf_stop_rx(hackrf_device* device);
+```
+
+---
+
+## Configuration de l'appareil
+
+### Fréquence centrale
+
+```c
+int hackrf_set_freq(hackrf_device* device, uint64_t freq_hz);
+```
+
+---
+
+### Taux d’échantillonnage
+
+```c
+int hackrf_set_sample_rate(hackrf_device* device, double freq_hz);
+```
+
+> Doit être compris entre 2 et 20 MHz. Valeur par défaut : 10 MHz.
+
+---
+
+### Filtrage (bande passante)
+
+```c
+int hackrf_set_baseband_filter_bandwidth(hackrf_device* device, uint32_t bandwidth_hz);
+```
+
+> Valeurs acceptées : 1.75, 2.5, 3.5, 5, 6, 7, ..., 28 MHz
+> Par défaut : \~0.75 × taux d’échantillonnage
+
+
+---
+
+## Références
+
+* [Documentation officielle HackRF](https://github.com/greatscottgadgets/hackrf/wiki)
+* [libhackrf GitHub](https://github.com/greatscottgadgets/hackrf/tree/master/host/libhackrf)
+
+
