@@ -1,17 +1,21 @@
-Artemis permet d'avoir accès en offligne à une base de données de signal (son + waterfall)
+# Artemis – Analyse de signaux et base de données hors-ligne
 
+**Artemis** est un outil permettant d’explorer une base de données de signaux radio en mode **hors-ligne**, avec visualisation du **spectre audio** associée à chaque type de modulation (+ le son)
 
+---
 
-Site officiel
-- https://www.aresvalley.com/artemis/
+## Fonctionnalités principales
 
-Base de donner de signal:
-- https://www.sigidwiki.com/wiki/Signal_Identification_Guide
+- Consultation hors-ligne d’une base de signaux classés
+- Accès à des exemples audio et à leur représentation spectrale
+- Identification visuelle facilitée grâce aux waterfall préenregistrées
 
-Exemple très interessant sur le wiki car assez complet:
-- https://www.sigidwiki.com/wiki/Automatic_Picture_Transmission_(APT)
-On donne des méthode pour lire et décoder le signal.
+---
 
-github:
-- https://github.com/AresValley/Artemis
+## Liens utiles
 
+- **Site officiel Artemis**
+  [https://www.aresvalley.com/artemis/](https://www.aresvalley.com/artemis/)
+
+- **GitHub du projet Artemis**
+  [https://github.com/AresValley/Artemis](https://github.com/AresValley/Artemis)
