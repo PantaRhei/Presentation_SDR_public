@@ -1,16 +1,33 @@
-# Ecoute des fréquences aériennes
-## Software
-Pour ecouter, les fréquences aériennes ont peut utiliser les logiciels suivant:
-- CubicSDR
-- GQRX
-Il en existe plein d'autre. 
+# Écoute des fréquences aériennes
 
-## Ecoute
-La bande VHF pour les communications attribuées au avion est situé entre 118.000 MHz to 136.995 MHz.
-Le mode choisit est le AM. 
+---
+
+## Logiciels recommandés
+
+Pour écouter les communications aériennes, les logiciels que j'utilise:
+
+- **CubicSDR**
+- **GQRX**
+
+D'autres outils d'écoute SDR peuvent également convenir (ex. SDR#, SDRangel, etc.).
+
+---
+
+## Bande de fréquence
+
+Les communications aéronautiques en VHF sont situées dans la plage suivante:
+
+- **118.000 MHz à 136.995 MHz**
+
+La **modulation utilisée est l'AM (Amplitude Modulation)**, standard dans ce domaine.
+
+---
+
+## Ressource complémentaire
+
+- [Airband – Wikipédia (en)](https://en.wikipedia.org/wiki/Airband)
 
 
-## Ressource
-- https://en.wikipedia.org/wiki/Airband
 
-
+## TODO
+- Ajouter une capture d'une écoute
