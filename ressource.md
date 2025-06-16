@@ -1,61 +1,59 @@
-Site de référence dans la SDR à voir absolument:
-https://www.rtl-sdr.com/
+# Ressources SDR
 
-Comment commencer la sdr?
-https://www.rtl-sdr.com/rtl-sdr-quick-start-guide/
+Ce document rassemble une sélection de ressources utiles pour découvrir et approfondir le domaine de la **Software Defined Radio (SDR)**.
 
+---
 
-Wikipédia du signal:
+## Pour commencer
 
-Waterfall + defois des tutos sur comment écouter les signaux
-https://www.sigidwiki.com/wiki/Signal_Identification_Guide
+- [RTL-SDR.com – Site de référence SDR](https://www.rtl-sdr.com/)
+- [Guide de démarrage rapide RTL-SDR](https://www.rtl-sdr.com/rtl-sdr-quick-start-guide/)
 
+---
 
-Système d'exploitation orienter SDR
-https://cemaxecuter.com/
+## Références techniques
 
+- [Sigidwiki – Signal Identification Guide](https://www.sigidwiki.com/wiki/Signal_Identification_Guide)  
+  Contient une bibliothèque de signaux typiques (avec spectrogrammes), et parfois des tutos pour les identifier ou les écouter.
 
-Et ca chaine youtube
-https://www.youtube.com/@cemaxecuter7783
+- [RadarTutorial.eu – Fonctionnement des radars](https://www.radartutorial.eu/index.en.html)  
+  Ressource très complète, disponible en plusieurs langues.
 
+---
 
-Article sur dragon os:
-https://www.rtl-sdr.com/dragonos-debian-linux-with-preinstalled-open-source-sdr-software/
+## Systèmes d’exploitation et distributions SDR
 
+- [Cemaxecuter.com – OS orienté SDR](https://cemaxecuter.com/)
+- [Chaîne YouTube de Cemaxecuter](https://www.youtube.com/@cemaxecuter7783)
+- [Article RTL-SDR sur DragonOS (distribution Debian spécialisée SDR)](https://www.rtl-sdr.com/dragonos-debian-linux-with-preinstalled-open-source-sdr-software/)
 
+---
 
+## HackRF One
 
-Site du hackrf one:
-https://greatscottgadgets.com/hackrf/one/
+- [Site officiel HackRF One](https://greatscottgadgets.com/hackrf/one/)
+- [GitHub officiel HackRF](https://github.com/greatscottgadgets/hackrf)
+- [Chaîne YouTube Great Scott Gadgets](https://www.youtube.com/GreatScottGadgets)
 
+---
 
-Et le github officiel du hackrf one:
-https://github.com/greatscottgadgets/hackrf
+## Antennes & RF
 
+- [Playlist YouTube sur les antennes (électronique)](https://www.youtube.com/playlist?list=PLfiqNnhpCsNuygWomPQXno8Qq__dR0UbM)
 
-Chaine youtube hackrf one (quelque tutoriel interessant):
-https://www.youtube.com/GreatScottGadgets
+---
 
+## Projets & logiciels utiles
 
-Site qui parle des fonctionnements des radars (très très interessants + Plusieurs langue dispo):
-https://www.radartutorial.eu/index.en.html
+- [Expériences HackRF en français (by PierreAdams)](https://github.com/PierreAdams/HackRF-One-French)
+- [Projet de jamming FM SDR](https://github.com/timkim0713/RFJamming-FMRadio-SDR)
+- [PortaPack HackRF One](https://github.com/sharebrained/portapack-hackrf/)
+- [URH – Universal Radio Hacker (également dispo via Snap)](https://github.com/jopohl/urh)
+- [RTL_433 – Décodage de capteurs 433 MHz](https://github.com/merbanan/rtl_433)
 
+---
 
-Ressource sur les antennes (electronique):
-- https://www.youtube.com/playlist?list=PLfiqNnhpCsNuygWomPQXno8Qq__dR0UbM
+## Radio amateur
 
-Github interessant:
-Plusieurs expérience simpas à faire avec un hackrf 
-- https://github.com/PierreAdams/HackRF-One-French
-Pour le jamming:
-- https://github.com/timkim0713/RFJamming-FMRadio-SDR
-Portal pack pour le hackrf one:
--https://github.com/sharebrained/portapack-hackrf/
-Logiciel URH (dispo sur snap):
-- https://github.com/jopohl/urh
-RTL433:
-- https://github.com/merbanan/rtl_433
-
-
-Site radio amateur france:
-- https://www.radioamateurs-france.fr/
+- [Site Radioamateurs France](https://www.radioamateurs-france.fr/)
+<!--  -->

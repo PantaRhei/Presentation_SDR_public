@@ -10,11 +10,11 @@
 ## Analogiques
 
 - **FM (Frequency Modulation)**
-  La fréquence du signal porteur varie en fonction de l'amplitude du signal audio.  
+  La fréquence du signal porteur varie en fonction de l'amplitude du signal audio. 
   Utilisation typique : radio FM, talkie-walkie, communications maritimes, PMR.
 
 - **NFM (Narrowband FM)**
-  Variante étroite de la FM, avec moins de bande passante (12.5 kHz au lieu de 200 kHz).  
+  Variante étroite de la FM, avec moins de bande passante (12.5 kHz au lieu de 200 kHz).
   Utilisation : talkie-walkies PMR446, services de sécurité, transmissions vocales de faible qualité.
 
 - **AM (Amplitude Modulation)**
@@ -45,7 +45,7 @@
   Modulation par changement de phase du signal porteur.
   Utilisation : Wi-Fi, ZigBee, DVB-S.
 
-- **QAM (Quadrature Amplitude Modulation)**  
+- **QAM (Quadrature Amplitude Modulation)**
   Combine modulation d’amplitude et de phase pour transmettre plusieurs bits par symbole.
   Utilisation : DVB-T, LTE, Wi-Fi, câble numérique.
 
@@ -53,7 +53,7 @@
 
 ## I/Q – Données brutes
 
-- **I/Q (In-phase / Quadrature)**  
+- **I/Q (In-phase / Quadrature)**
   Représente les composantes en phase et en quadrature d’un signal.
   Utilisé dans toutes les chaînes de traitement SDR.
   Les signaux I/Q ne sont pas une modulation, mais une **représentation** numérique permettant d'analyser ou de reconstruire n'importe quel type de modulation.
